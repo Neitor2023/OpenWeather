@@ -1,14 +1,32 @@
-* {
+*, *:before, *:after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: 0;
+}
+
+img {
+    width: 100%;
 }
 
 body {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.load {
+.container_loader{
+    top: 400px;
+    left: 330px;
+    background-color: #f3f3f3;
+    position: fixed;
+    width: 100vh;
+    height: 100vb;
+    z-index: 9999;
+    transition: all 1.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .load {
     position: fixed;
     top: 0;
     left: 0;
@@ -19,4 +37,48 @@ body {
     display: grid;
     justify-content: center;
     align-items: center;
+} */
+
+.loader,
+.loader:before,
+.loader::after{
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    animation: Loader 1.5s infinite ease-in-out;
+}
+
+.loader{
+    color: #4685fa;
+    font-size: 13px;
+    position: relative;
+    animation-delay: -0.16s;
+}
+
+.loader,
+.loader:before,
+.loader:after{
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.loader:before{
+    left: -3.5em;
+    animation-delay: -0.32s;
+}
+
+.loader:after{
+    left: 3.5em;
+}
+
+@keyframes Loader {
+    0%,
+    80%,
+    100%{
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40%{
+        box-shadow: 0 2.5em 0 0;
+    }
 }
