@@ -14,30 +14,16 @@ body {
 }
 
 .container_loader{
-    top: 400px;
-    left: 330px;
     background-color: #f3f3f3;
     position: fixed;
-    width: 100vh;
-    height: 100vb;
+    width: 100%;
+    height: 100%;
     z-index: 9999;
     transition: all 1.5s;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-/* .load {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--body-color);
-    z-index: 1000;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-} */
 
 .loader,
 .loader:before,
@@ -60,7 +46,6 @@ body {
 .loader:after{
     content: '';
     position: absolute;
-    top: 0;
 }
 
 .loader:before{
