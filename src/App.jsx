@@ -5,16 +5,6 @@ import { WEATHER_KEY } from './keys'
 import axios from 'axios'
 
 function App() {
-  const state = {
-    // country: '',
-    city: ''
-    // temperature: '',
-    // description: '',
-    // humidity: '',
-    // wind_speed: '',
-    // error: null
-  }
-
   const [count, setCount] = useState(0)
 
   const getWeather = async e => {
@@ -32,15 +22,15 @@ function App() {
     console.log(API_URL)
     console.log(state)
 
-    useState({
+    // useState({
         // country: data.sys.country,
-        city: data.main.name
+        // city: data.main.name
         // temperature: data.main.temp,
         // description: data.weather[0].description,
         // humidity: data.main.humidity,
         // wind_speed: data.wind.speed,
         // error: null
-      });
+      // });
 //     useEffect(() => {
 //       axios
 //       .get(`http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}`)
@@ -55,7 +45,7 @@ function App() {
     <div className='container p-4'>
       <div className='row'>
         <div className="col-md-4 mx-auto">
-          <WeatherForm getWeather={getWeather}/>
+          <WeatherForm/>
           <WeatherInfo/>
         </div>
       </div>
