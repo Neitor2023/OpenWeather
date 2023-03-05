@@ -13,14 +13,14 @@ function App() {
     const cityValue = city.value
     const countryValue = country.value
     
-    const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}&units=metric`;
+    // const API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}&units=metric`;
     
-    const response = await fetch(API_URL);
-    const data = await response.json();
+    // const response = await fetch(API_URL);
+    // const data = await response.json();
 
-    console.log(data)
-    console.log(API_URL)
-    console.log(state)
+    // console.log(data)
+    // console.log(API_URL)
+    // console.log(state)
 
     // useState({
         // country: data.sys.country,
@@ -31,15 +31,16 @@ function App() {
         // wind_speed: data.wind.speed,
         // error: null
       // });
-//     useEffect(() => {
-//       axios
-//       .get(`http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}`)
-//       .then((resp) => resp.data)
-//       console.log(resp.data)
-//       .catch((error) => console.error(error));
-//     }, []);
+    useEffect(() => {
+      axios
+      .get(`http://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_KEY}`)
+      .then((resp) => resp.data)
+      console.log(resp.data)
+      .catch((error) => console.error(error));
+    }, []);
 }
 
+    console.log(data)
   
   return (
     <div className='container p-4'>
