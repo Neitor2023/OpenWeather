@@ -45,7 +45,7 @@ function App() {
     <div className='container p-4'>
       <div className='row'>
         <div className="col-md-4 mx-auto">
-          <WeatherForm/>
+          <WeatherForm  getWeather={getWeather}/>
           <WeatherInfo/>
         </div>
       </div>
