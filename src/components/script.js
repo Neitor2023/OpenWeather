@@ -1,4 +1,4 @@
-console.log('lleguee')
+console.log('llegue a scriptJSX')
 window.addEventListener('load'), () => {
     const container_loader = document.querySelector('.container_loader')
     container_loader.style.opacity = 0
