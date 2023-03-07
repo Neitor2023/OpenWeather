@@ -1,2 +1,2 @@
-// export const WEATHER_KEY = "418fb3d8e91d75bf3e12778a8460690e";
-export const WEATHER_KEY = "fc7b6230a9b92024661b9cf762f84485";
+export const WEATHER_KEY = "418fb3d8e91d75bf3e12778a8460690e";
+// export const WEATHER_KEY = "fc7b6230a9b92024661b9cf762f84485";
