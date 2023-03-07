@@ -6,24 +6,16 @@ import axios from 'axios'
 
 function App() {
   const [weatherData, setweatherData] = useState({})
-  const [latit, setLatit] = useState(0)
-  const [longi, setLongi] = useState(0)
   
-
   useEffect(() => {
-    console.log("Bandera")
     navigator.geolocation.getCurrentPosition((position) => {
-      setLatit(position.coords.latitude)
-      setLongi(position.coords.longitude)
-
-      // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
       axios
-      .get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latit}&lon=${longi}&appid=${WEATHER_KEY}&units=metric`)
+      .get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${WEATHER_KEY}&units=metric`)
       .then((resp) => setweatherData(resp.data))
       .catch((error) => setweatherData());
     })
   }, [])
-
+  // console.error(error)
   const getWeather = e => {
     e.preventDefault();
     const { city, country } = e.target.elements;

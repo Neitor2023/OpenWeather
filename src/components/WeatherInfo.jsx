@@ -1,18 +1,74 @@
 import { useState, setState } from 'react';
 // const [fahrenheit, setFahrenheit] = useState(0)
 // const [isFahrenheit, setIsFahrenheit] = useState(false)
-// const [icono, setIcono] = useState([1,"clear sky",2,"few clouds",3,"scattered clouds",4,"broken clouds",5,"shower rain",6,"rain",9,"thunderstorm",7,"snow",8,"mist"]);
-const icoNumb = ["","clear sky","few clouds","scattered clouds","broken clouds","shower rain","rain","snow","mist","thunderstorm"];
-let num = 1
 
-console.log("Prueba ",icoNumb.indexOf("thunderstorm"))
+const svgNumb = [9,"thunderstorm with light rain",
+9,"thunderstorm with rain",
+9,"thunderstorm with heavy rain",
+9,"light thunderstorm",
+9,"thunderstorm",
+9,"heavy thunderstorm",
+9,"ragged thunderstorm",
+9,"thunderstorm with light drizzle",
+9,"thunderstorm with drizzle",
+9,"thunderstorm with heavy drizzle",
+6,"light intensity drizzle",
+6,"drizzle",
+6,"heavy intensity drizzle",
+6,"light intensity drizzle rain",
+6,"drizzle rain",
+6,"heavy intensity drizzle rain",
+6,"shower rain and drizzle",
+6,"heavy shower rain and drizzle",
+6,"shower drizzle",
+6,"light rain",
+6,"moderate rain",
+5,"heavy intensity rain",
+5,"very heavy rain",
+5,"extreme rain",
+5,"freezing rain",
+5,"light intensity shower rain",
+5,"shower rain",
+5,"heavy intensity shower rain",
+5,"ragged shower rain",
+7,"light snow",
+7,"snow",
+7,"heavy snow",
+7,"sleet",
+7,"light shower sleet",
+7,"shower sleet",
+7,"light rain and snow",
+7,"rain and snow",
+7,"light shower snow",
+7,"shower snow",
+7,"heavy shower snow",
+8,"mist",
+8,"smoke",
+8,"haze",
+8,"sand/dust whirls",
+8,"fog",
+8,"sand",
+8,"dust",
+8,"volcanic ash",
+8,"squalls",
+8,"tornado",
+1,"clear sky",
+2,"few clouds",
+3,"scattered clouds",
+4,"broken clouds",
+4,"overcast clouds"]
 
 const WeatherInfo = ({ data }) => {
-    console.log("data Info", data)
     return (
         <div className="card card-body">
-            {data && <div>
-                <img src={`./public/w/${icoNumb.indexOf(data.current?.weather?.[0].description)}.svg`} alt="" />
+            {<div>
+                <p><span> </span></p><br />
+                <p><span> </span></p><br />
+                <p><span> </span></p><br />
+                <p><span> </span></p><br />
+            </div>},
+            {data.lat && <div>
+                <img src={`./w/${svgNumb[svgNumb.indexOf(data.current?.weather?.[0].description)-1]}.svg`} alt="" />
                 <p><span>Current Weather: </span>{data.current?.weather?.[0].description}</p><br />
                 <p><span>Time Latitude: </span>{data.lat}</p><br />
                 <p><span>Time Longitude: </span>{data.lon}</p><br />
@@ -20,18 +76,14 @@ const WeatherInfo = ({ data }) => {
                 <p><span>Current Pressure: </span>{data.current?.pressure}</p><br />
                 <p><span>Current Humidity: </span>{data.current?.humidity}</p><br />
                 <p><span>Current Wind Speed: </span>{data.current?.wind_speed}</p><br />
-
+            </div>},
+            {data.name && <div>
+                <img src={`./w/${svgNumb[svgNumb.indexOf(data.weather?.[0].description)-1]}.svg`} alt="" />
                 <p><span>Coutry: </span>{data.name}</p><br />
                 <p><span>Temperature: </span> {data.weather?.[0].description} ºC, {data.main?.temp}</p><br />
                 <p><span>Humidity: </span>{data.main?.humidity}</p><br />
                 <p><span>Wind Speed: </span>{data.wind?.speed}</p><br />
                 <p><span>Time Zone: </span>{data.timezone}</p><br />
-            </div>}
-            {!data && <div>
-                <p><span> </span></p><br />
-                <p><span> </span></p><br />
-                <p><span> </span></p><br />
-                <p><span> </span></p><br />
             </div>}
         </div>
     )
