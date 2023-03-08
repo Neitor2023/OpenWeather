@@ -61,7 +61,8 @@ const svgNumb = [9, "thunderstorm with light rain",
 const WeatherInfo = ({ data }) => {
     const [isMetricImperial, setIsMetricImperial] = useState();
     return (
-        <div className="card card-body">
+        <div className="card_weather">
+            {/* card card-body */}
             {<div>
                 <p><span> </span></p><br />
                 <p><span> </span></p><br />
@@ -69,11 +70,12 @@ const WeatherInfo = ({ data }) => {
                 <p><span> </span></p><br />
             </div>},
             {data.lat && <div>
-                <img src={`./w/${svgNumb[svgNumb.indexOf(data.current?.weather?.[0].description) - 1]}.svg`} alt="" />
+                <p className='temp'>{isMetricImperial ? data.current?.temp :((data.current?.temp * 9/5 ) + 32).toFixed(2)}{isMetricImperial ? " °C":" °F"}</p>
+                <img src={`./w/${svgNumb[svgNumb.indexOf(data.current?.weather?.[0].description) - 1]}.svg`} alt="" width="50px"/>
+                {/* {width: 50px; height: 50px;} */}
                 <p><span>Current Weather: </span>{data.current?.weather?.[0].description}</p><br />
                 <p><span>Time Latitude: </span>{data.lat}</p><br />
                 <p><span>Time Longitude: </span>{data.lon}</p><br />
-                <p><span>Current Temperature: </span>{isMetricImperial ? data.current?.temp :((data.current?.temp * 9/5 ) + 32).toFixed(2)}{isMetricImperial ? " °C":" °F"}</p><br />
                 <p><span>Current Pressure: </span>{data.current?.pressure}</p><br />
                 <p><span>Current Humidity: </span>{data.current?.humidity}</p><br />
                 <p><span>Current Wind Speed: </span>{data.current?.wind_speed}</p><br />
@@ -86,7 +88,8 @@ const WeatherInfo = ({ data }) => {
                 <p><span>Wind Speed: </span>{data.wind?.speed}</p><br />
                 <p><span>Time Zone: </span>{data.timezone}</p><br />
             </div>}
-            <button onClick={() => setIsMetricImperial(!isMetricImperial)} className="btn btn-success btn-block">Metric: °C, m/s / Imperial: °F, mph</button>
+            <button onClick={() => setIsMetricImperial(!isMetricImperial)} className="bnt_weather">Switch to °F</button>
+            {/* btn btn-success btn-block */}
         </div>
     )
 }
