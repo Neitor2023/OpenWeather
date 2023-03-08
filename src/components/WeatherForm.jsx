@@ -1,3 +1,4 @@
+import { useState } from 'react'
 const WeatherForm = props => {
 
     return (
@@ -11,7 +12,7 @@ const WeatherForm = props => {
                 </div>
                 <button className="btn btn-success btn-block">
                     Get Weather
-                </button>
+                </button>               
             </form>
         </div>
     )

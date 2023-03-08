@@ -1,0 +1,5 @@
+import { useState } from 'react';
+
+    const [isMetricImperial, setIsMetricImperial] = useState();
+
+<button onClick={() => setIsMetricImperial(!isMetricImperial)} className="btn btn-success btn-block">Metric: °C, m/s / Imperial: °F, mph</button>
