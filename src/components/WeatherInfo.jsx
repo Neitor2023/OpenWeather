@@ -71,7 +71,7 @@ const WeatherInfo = ({ data }) => {
             </div>},
             {data.lat && <div>
                 <p className='temp'>{isMetricImperial ? data.current?.temp :((data.current?.temp * 9/5 ) + 32).toFixed(2)}{isMetricImperial ? " °C":" °F"}</p>
-                <img src={`./w/${svgNumb[svgNumb.indexOf(data.current?.weather?.[0].description) - 1]}.svg`} alt="" width="50px"/>
+                <img className='icono_weather' src={`./w/${svgNumb[svgNumb.indexOf(data.current?.weather?.[0].description) - 1]}.svg`} alt="" width="50px"/>
                 {/* {width: 50px; height: 50px;} */}
                 <p><span>Current Weather: </span>{data.current?.weather?.[0].description}</p><br />
                 <p><span>Time Latitude: </span>{data.lat}</p><br />

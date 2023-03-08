@@ -13,6 +13,10 @@ img {
     width: 100%;
 }
 
+.icono_weather{
+    width: 100px;
+}
+
 body {
     background: radial-gradient(circle at center, #D5F3FF 0, #51B4E8 100%);
     /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
