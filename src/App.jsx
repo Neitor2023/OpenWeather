@@ -6,7 +6,8 @@ import axios from 'axios'
 
 function App() {
   const [weatherData, setweatherData] = useState({})
-  
+  // const [isMetricImperial, setIsMetricImperial] = useState();
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       axios
@@ -18,6 +19,8 @@ function App() {
   // console.error(error)
   const getWeather = e => {
     e.preventDefault();
+        const [isMetricImperial, setIsMetricImperial] = useState();
+
     const { city, country } = e.target.elements;
     const cityValue = city.value
     const countryValue = country.value
@@ -38,6 +41,7 @@ function App() {
         <div className="col-md-4 mx-auto">
           <WeatherForm getWeather={getWeather} />
           <WeatherInfo data={weatherData} />
+          {/* <button onClick={() => setIsMetricImperial(!isMetricImperial)} className="bnt_weather">Switch to °</button> */}
         </div>
       </div>
     </div>
