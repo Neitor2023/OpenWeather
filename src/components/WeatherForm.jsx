@@ -1,21 +1,25 @@
-import { useState } from 'react'
+
 const WeatherForm = props => {
 
     return (
-        <div className="card card-body">
+        <div className="form_card">
             <form onSubmit={props.getWeather}>
                 <div className="form-group">
-                    <input type="text" name="city" placeholder ="Your City Name" className="form-control" autoFocus/>
+                    <box-icon name='search-alt-2'></box-icon>
+                    <input type="text" name="city" placeholder="Your City Name" autoFocus />
                 </div>
                 <div className="form-group">
-                    <input type="text" name="country" placeholder ="Your Country Name" className="form-control"/>
+                    <box-icon name='search-alt-2'></box-icon>
+                    <input type="text" name="country" placeholder="Your Country Name" />
                 </div>
-                <button className="btn btn-success btn-block">
+                <button className="bnt_weather">
                     Get Weather
-                </button>               
+                </button>
             </form>
         </div>
     )
 }
 
 export default WeatherForm
+
+// className="card card-body"

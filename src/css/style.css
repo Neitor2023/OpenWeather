@@ -12,10 +12,10 @@
 img {
     /* width: 100%; */
     max-width: 100%;
-    max-height: 100%;    
+    max-height: 100%;
 }
 
-.icono_weather{
+.icono_weather {
     /* width: 250px; */
     top: 0;
 }
@@ -39,13 +39,14 @@ body {
     justify-content: center;
 }
 
-.card_weather{
-    background: linear-gradient(#E5f2ff 0%, #D5F3FF 97.4% );
-    background-image: linear-gradient(26deg, transparent 0%, #d5f3ff 0% 62%, transparent 62%);
+.card_weather {
+    justify-content: space-between;
+    background: linear-gradient(#E5f2ff 0%, #D5F3FF 97.4%);
+    background-image: linear-gradient(26deg, transparent 0%, #d5f3ff 0% 69%, transparent 69%);
     filter: drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.25));
-    /* border-radius: 40.85px; */
+    border-radius: 40.85px;
     border-radius: 2rem;
-    border-top-right-radius: 68rem 15rem;
+    border-top-right-radius: 68rem 50rem;
     border-top-left-radius: 8rem 5rem;
     border-bottom-left-radius: 4rem;
     border-bottom-right-radius: 4rem;
@@ -54,20 +55,22 @@ body {
 
     /* outline: 4px solid #fff; */
     margin: 10px auto;
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-area:
-    "n1 n2"
-    "n3 n4"
-    "n5 n6"
-    "n7 n8";
+        "n1 n2"
+        "n3 n4"
+        "n5 n6"
+        "n7 n8";
     /* padding: 50px; */
     /* justify-content: center; */
     /* align-items: center; */
-    font-family: "Lato";
-    width: 519px;
-    height: 345px;
+    /* font-family: "Lato"; */
+    width: 355px;
+    height: 280px;
+    /* width: 519px; */
+    /* height: 345px; */
     /* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25); */
     /* display: inline-block;
     text-align: center;
@@ -80,13 +83,30 @@ body {
     position: relative;
 }
 
+.form_card{
+    position: relative;
+}
 
-.div_temp{
+.form_card input{
+    padding: 12px 0px 12px 42px;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+.form_card input i{
+    position: absolute;
+    margin-left: 17px;
+    top: 14px;
+    font-size: 50px;
+    color: #fff;
+}
+.div_temp {
     color: #026eed;
     /* width: 150px; */
     /* display: flex; */
-    font-size: 95px;
-    text-align:center;
+    font-family: "Lato";
+    font-size: 63px;
+    text-align: center;
     /* justify-content: end; */
     transform: translatey(35%);
     grid-area: "n1";
@@ -94,7 +114,7 @@ body {
     /* height: 300px;     */
 }
 
-.div_icono{
+.div_icono {
     /* background: yellow; */
     /* margin-left: auto; 
     margin-right: auto;     */
@@ -103,24 +123,27 @@ body {
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
-    
-    /* width: 200px; */
-    /* height: 200px; */
+
+    width: 150px;
+    height: 150px;
     /* top: -1px; */
     grid-area: "n2";
 }
-.div_detail{
+
+.div_detail {
+    color: #026eed;
     /* width: 700px; */
     /* background:lemonchiffon; */
     /* font-size: 2rem; */
     grid-area: "n3";
 }
 
-.ul_detail{
+.ul_detail {
     list-style-type: none;
 }
 
-.div_other{
+.div_other {
+    color: #026eed;
     /* text-indent: 120px; */
     align-content: end;
     /* background: lime; */
@@ -128,19 +151,40 @@ body {
     grid-area: "n4";
     transform: translateY(20px);
 }
-.div_location{
+
+.div_location {
+    color: #026eed;
     /* background: lightgreen; */
-    text-indent: 11%;
+    text-indent: 5%;
     grid-area: "n5";
 }
-.div_descrip{
+
+.div_descrip {
+    color: #026eed;
     /* background:violet; */
     /* font-size: 2rem; */
-    text-indent: 11%;
+    text-indent: 5%;
     grid-area: "n6";
 }
 
-.bnt_weather{
+input {
+    padding: .8em 1em;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    background-color: #38A0D8;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: .5px;
+}
+
+::placeholder {
+    color: #fff;
+    /* background: #026eed; */
+}
+
+.bnt_weather {
     grid-area: "n8";
     color: #fff;
     width: 178px;
@@ -149,8 +193,8 @@ body {
     border-radius: 4.85px;
     offset: 0px 4.85px;
     filter: drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.25));
-    /* filter: drop-shadow(rgba(0, 0, 0, 0.25)); */
 }
+
 .loader,
 .loader:before,
 .loader::after {
@@ -184,7 +228,6 @@ body {
 }
 
 @keyframes Loader {
-
     0%,
     80%,
     100% {

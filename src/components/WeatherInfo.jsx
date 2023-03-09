@@ -1,6 +1,4 @@
 import { useState } from 'react';
-// const [fahrenheit, setFahrenheit] = useState(0)
-// const [isFahrenheit, setIsFahrenheit] = useState(false)
 
 const svgNumb = [9, "thunderstorm with light rain",
     9, "thunderstorm with rain",
@@ -58,70 +56,82 @@ const svgNumb = [9, "thunderstorm with light rain",
     4, "broken clouds",
     4, "overcast clouds"]
 
-const WeatherInfo = ({ data }) => {
+const WeatherInfo = ({ data, coordsProps, paisProps }) => {
     const [isMetricImperial, setIsMetricImperial] = useState();
     return (
         <div className="card_weather">
-            {/* 
-            card card-body
-            {<div>
-                <p><span> </span></p><br />
-                <p><span> </span></p><br />
-                <p><span> </span></p><br />
-                <p><span> </span></p><br />
-            </div>},
-            */}
-            <div className='div_temp'>
-                {/*
-                */}
+            {coordsProps && <div className='div_temp'>
                 <p>{isMetricImperial ? (data.current?.temp).toFixed(0) : ((data.current?.temp * 9 / 5) + 32).toFixed(0)}{isMetricImperial ? " °C" : " °F"}</p>
-            </div>
-            <div className='div_icono'>
-
+            </div>}
+            {coordsProps && <div className='div_icono'>
                 <img className='icono_weather' src={`./w/${svgNumb[svgNumb.indexOf(data.current?.weather?.[0].description) - 1]}.svg`} alt="" />
-                {/*
-            */}
-            </div>
-            <div className='div_detail'>
-                {/* 
-            */}
+            </div>}
+            {coordsProps && <div className='div_detail'>
                 <ul className='ul_detail'>
                     <li><span>Wind: </span>{data.current?.wind_speed}</li>
                     <li><span>Pressure: </span>{data.current?.pressure}</li>
                     <li><span>Humidity: </span>{data.current?.humidity}</li>
                 </ul>
-            </div>
-            <div className='div_other'>
-                <ul className='ul_detail'>
-                    <li><span>Latitude: </span>{data.lat}</li>
-                    <li><span>Longitude: </span>{data.lon}</li>
-                </ul>
-            </div>
-            <div className='div_location'>
-                {data.timezone}
-            </div>
-            <div className='div_descrip'>
-                <span>Clouds: </span>{data.current?.weather?.[0].description}
-            </div>
-            {data.lat && <div><br />
-                
-            </div>},
-            {data.name && <div>
-                <img src={`./w/${svgNumb[svgNumb.indexOf(data.weather?.[0].description) - 1]}.svg`} alt="" />
-                <p><span>Coutry: </span>{data.name}</p><br />
-                <p><span>Temperature: </span> {data.weather?.[0].description} {isMetricImperial ? data.main?.temp : ((data.main?.temp * 9 / 5) + 32).toFixed(2)}{isMetricImperial ? " °C" : " °F"}</p><br />
-                <p><span>Humidity: </span>{data.main?.humidity}</p><br />
-                <p><span>Wind Speed: </span>{data.wind?.speed}</p><br />
-                <p><span>Time Zone: </span>{data.timezone}</p><br />
             </div>}
-            {/* btn btn-success btn-block */}
-            <button onClick={() => setIsMetricImperial(!isMetricImperial)} className="bnt_weather">Switch to °</button>
+            {coordsProps && <div className='div_other'>
+                <ul className='ul_detail'>
+                    <li><span>Latitude: </span>{(data.lat)}</li>
+                    <li><span>Longitude: </span>{(data.lon)}</li>
+                </ul>
+            </div>}
+            {coordsProps && <div className='div_location'>
+                <span>{data.timezone}</span>
+            </div>}
+            {coordsProps && <div className='div_descrip'>
+                <span>Clouds: {data.current?.weather?.[0].description}</span>
+            </div>}
+
+            {paisProps && <div className='div_temp'>
+                <p>{isMetricImperial ? (data.main?.temp).toFixed(0) : ((data.main?.temp * 9 / 5) + 32).toFixed(0)}{isMetricImperial ? " °C" : " °F"}</p>
+            </div>}
+            {paisProps && <div className='div_icono'>
+                <img className='icono_weather' src={`./w/${svgNumb[svgNumb.indexOf(data.weather?.[0].description) - 1]}.svg`} alt="" />
+            </div>}
+            {paisProps && <div className='div_detail'>
+                <ul className='ul_detail'>
+                    <li><span>Wind: </span>{data.wind?.speed}</li>
+                    <li><span>Wind Speed: </span>{data.wind?.speed}</li>
+                    <li><span>Humidity: </span>{data.main?.humidity}</li>
+                </ul>
+            </div>}
+            {paisProps && <div className='div_other'>
+                <ul className='ul_detail'>
+                    <li><span>Latitude: </span>{(data.coord?.lat)}</li>
+                    <li><span>Longitude: </span>{(data.coord?.lon)}</li>
+                </ul>
+            </div>}
+            {paisProps && <div className='div_location'>
+                <span>{data.name} {data.sys?.country}</span>
+            </div>}
+            {paisProps && <div className='div_descrip'>
+                <span>{data.weather?.[0].description}</span>
+            </div>}
+            <button onClick={() => setIsMetricImperial(!isMetricImperial)} className="bnt_weather">Switch to °{isMetricImperial ? "F" : "C"}</button>
         </div>
     )
 }
 
 export default WeatherInfo
 
+
+// {data.lat && <div><br />
+
+// </div>},
+// {data.name && <div>
+//     {/* <img src={`./w/${svgNumb[svgNumb.indexOf(data.weather?.[0].description) - 1]}.svg`} alt="" /> */}
+//     <p><span>Coutry: </span>{data.name}</p><br />
+//     <p><span>Temperature: </span> {data.weather?.[0].description} {isMetricImperial ? data.main?.temp : ((data.main?.temp * 9 / 5) + 32).toFixed(2)}{isMetricImperial ? " °C" : " °F"}</p><br />
+//     <p><span>Humidity: </span>{data.main?.humidity}</p><br />
+//     <p><span>Wind Speed: </span>{data.wind?.speed}</p><br />
+//     <p><span>Time Zone: </span>{data.timezone}</p><br />
+// </div>}
+
+{/* btn btn-success btn-block */ }
 {/* <h3><span>Altura: </span> {  isDecimeters ? 16.4 : 1.64 } { isDecimeters ? "decimeters" : "meters" }</h3>  */ }
 
 {/* <div className="alert alert-danger">{!data && <div><p>Please Enter a City and a Country</p></div>}</div>, */ }
