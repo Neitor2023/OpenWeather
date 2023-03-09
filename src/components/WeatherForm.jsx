@@ -21,5 +21,3 @@ const WeatherForm = props => {
 }
 
 export default WeatherForm
-
-// className="card card-body"
